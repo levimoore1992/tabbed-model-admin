@@ -1,0 +1,16 @@
+{% extends "admin/change_form.html" %}
+
+{% block form_top %}
+{{ block.super }}
+
+{% if tabs %}
+<div id="admin-tabs">
+  <ul>
+    {% for tab in tabs %}
+    <li class="{% if tab.slug == current_tab %}active{% endif %}"><a href="{% url tab.url_name object_id=object_id %}">{{ tab.name }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% endblock %}

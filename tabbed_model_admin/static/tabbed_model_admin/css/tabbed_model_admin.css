@@ -1,0 +1,40 @@
+:root {
+    --admin-tabs-active-color: rgb(255, 255, 204);
+    --admin-tabs-border-color: rgb(234, 234, 234);
+    --admin-tabs-inactive-color: rgb(249, 249, 249);
+}
+
+#admin-tabs {
+    border-bottom: 1px solid;
+    border-bottom-color: var(--admin-tabs-border-color);
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+#admin-tabs > ul {
+    border-spacing: .375em 0px;
+    display: table;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    table-layout: fixed;
+}
+
+#admin-tabs > ul > li {
+    background-color: var(--admin-tabs-inactive-color);
+    border-left: 1px solid var(--admin-tabs-border-color);
+    border-right: 1px solid var(--admin-tabs-border-color);
+    border-top: 1px solid var(--admin-tabs-border-color);
+    display: table-cell;
+    padding: .5em .5em;
+    text-align: center;
+}
+
+#admin-tabs > ul > li > a {
+    display: block;
+    font-weight: 600;
+}
+
+#admin-tabs > ul > li.active {
+    background-color: var(--admin-tabs-active-color);
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-tabbed-model-admin"
+version = "0.1.0"
+description = "Separate Django ModelAdmin forms as tabs for the same model."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Levi Moore"}]
+dependencies = ["Django>=4.2,<7"]
+classifiers = ["Framework :: Django", "Intended Audience :: Developers", "Programming Language :: Python :: 3"]
+
+[project.urls]
+Repository = "https://github.com/levimoore1992/tabbed-model-admin"
+Issues = "https://github.com/levimoore1992/tabbed-model-admin/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-django>=4.11"]
+
+[tool.setuptools.packages.find]
+include = ["tabbed_model_admin*"]
+
+[tool.setuptools.package-data]
+tabbed_model_admin = ["templates/**/*.html", "static/**/*.css"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
+testpaths = ["tests"]

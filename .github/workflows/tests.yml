@@ -1,0 +1,20 @@
+name: Tests
+on: [push, pull_request, workflow_call]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        django: ['4.2', '5.2', '6.0', '6.1']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.12'
+      - run: uv venv
+      - run: uv pip install '.[test]' 'Django~=${{ matrix.django }}.0'
+      - run: uv run --no-project pytest
+      - run: uv build
+      - run: uvx twine check dist/*
