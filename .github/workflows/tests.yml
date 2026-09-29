@@ -13,7 +13,7 @@ jobs:
       - uses: astral-sh/setup-uv@v5
         with:
           python-version: '3.12'
-      - run: uv venv
+      - run: uv venv --clear
       - run: uv pip install '.[test]' 'Django~=${{ matrix.django }}.0'
       - run: uv run --no-project pytest
       - run: uv build
